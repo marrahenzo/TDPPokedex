@@ -1,9 +1,9 @@
 package com.example.tdppokedex.android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -11,11 +11,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tdppokedex.android.databinding.ActivityMainBinding
-import com.example.tdppokedex.android.domain.Pokedex
 import com.example.tdppokedex.android.ui.PokedexAdapter
 import com.example.tdppokedex.android.ui.PokedexScreenState
 import com.example.tdppokedex.android.ui.PokedexViewModel
 import com.example.tdppokedex.android.ui.PokedexViewModelFactory
+import com.example.tdppokedex.data.Pokedex
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {

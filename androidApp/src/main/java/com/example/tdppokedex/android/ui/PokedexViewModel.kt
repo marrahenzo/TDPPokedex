@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tdppokedex.android.data.PokedexRepository
-import com.example.tdppokedex.android.domain.Pokedex
+import com.example.tdppokedex.data.Pokedex
+import com.example.tdppokedex.data.PokedexRepository
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -30,9 +30,9 @@ class PokedexViewModel(private val pokedexRepository: PokedexRepository) : ViewM
             kotlin.runCatching {
                 pokedexRepository.getPokedex()
             }.onSuccess {
-                if (it.body() != null) {
-                    pokedex.postValue(it.body()!!)
-                    _screenState.value = PokedexScreenState.ShowPokedex(it.body()!!)
+                if (it != null) {
+                    pokedex.postValue(it)
+                    _screenState.value = PokedexScreenState.ShowPokedex(it)
                 } else {
                     _screenState.value = PokedexScreenState.Error
                 }
