@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    kotlin("plugin.serialization") version "2.0.0-RC3"
 }
 
 kotlin {
@@ -26,8 +27,11 @@ kotlin {
     sourceSets {
         val ktorVersion = "2.3.11"
         commonMain.dependencies {
-            implementation(libs.ktor.client.core)
+            implementation("io.ktor:ktor-client-core:$ktorVersion")
+            implementation("io.ktor:ktor-client-android:$ktorVersion")
             implementation("io.ktor:ktor-client-logging:$ktorVersion")
+            implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
             implementation("io.github.aakira:napier:2.7.1")
         }
         commonTest.dependencies {
