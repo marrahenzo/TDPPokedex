@@ -55,15 +55,15 @@ dependencies {
     val ktorVersion = "2.3.11"
 
     // Retrofit
-    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation(libs.converter.gson)
+    implementation(libs.retrofit)
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
     // Picasso
-    implementation("com.squareup.picasso:picasso:$picassoVersion")
+    implementation(libs.picasso)
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")

@@ -1,13 +1,19 @@
 [versions]
 agp = "8.3.2"
+androidDriver = "2.0.1"
 kotlin = "1.9.20"
 compose = "1.5.4"
 compose-compiler = "1.5.4"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
 ktor = "2.3.11"
+napier = "2.7.1"
+picassoVersion = "2.71828"
+retrofitVersion = "2.6.2"
 
 [libraries]
+android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "androidDriver" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofitVersion" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
@@ -16,6 +22,10 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picassoVersion" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
+sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "androidDriver" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

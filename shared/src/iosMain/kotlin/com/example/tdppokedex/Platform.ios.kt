@@ -1,5 +1,6 @@
 package com.example.tdppokedex
 
+import app.cash.sqldelight.db.SqlDriver
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
 import platform.UIKit.UIDevice
@@ -13,4 +14,10 @@ actual fun getPlatform(): Platform = IOSPlatform()
 
 actual fun initLogger() {
     Napier.base(DebugAntilog())
+}
+
+actual class DatabaseDriverFactory {
+    actual fun createDriver(): SqlDriver {
+        return NativeSqliteDriver(Pokemon.Schema, "test.db")
+    }
 }

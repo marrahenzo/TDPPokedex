@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     kotlin("plugin.serialization") version "2.0.0-RC3"
+    id("app.cash.sqldelight") version "2.0.1"
 }
 
 kotlin {
@@ -32,10 +33,14 @@ kotlin {
             implementation("io.ktor:ktor-client-logging:$ktorVersion")
             implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
             implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-            implementation("io.github.aakira:napier:2.7.1")
+            implementation(libs.napier)
+            implementation(libs.sqlite.driver)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+        androidMain.dependencies {
+            implementation(libs.android.driver)
         }
     }
 }
@@ -49,5 +54,13 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+sqldelight {
+    databases {
+        create("Database") {
+            packageName.set("com.example.tdppokedex")
+        }
     }
 }

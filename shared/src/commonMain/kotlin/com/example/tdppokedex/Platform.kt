@@ -1,5 +1,7 @@
 package com.example.tdppokedex
 
+import app.cash.sqldelight.db.SqlDriver
+
 interface Platform {
     val name: String
 }
@@ -7,3 +9,7 @@ interface Platform {
 expect fun getPlatform(): Platform
 
 expect fun initLogger()
+
+expect class DatabaseDriverFactory {
+    fun createDriver(): SqlDriver
+}
