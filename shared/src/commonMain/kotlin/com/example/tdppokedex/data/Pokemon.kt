@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PokedexResults(
+data class Pokemon(
     @SerialName(value = "name")
     val name: String,
     @SerialName(value = "url")

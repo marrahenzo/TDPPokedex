@@ -43,6 +43,8 @@ kotlin {
             implementation(libs.android.driver)
         }
     }
+
+    task("testClasses")
 }
 
 android {
@@ -60,7 +62,7 @@ android {
 sqldelight {
     databases {
         create("Database") {
-            packageName.set("com.example.tdppokedex")
+            packageName.set("com.example.pokedex")
         }
     }
 }

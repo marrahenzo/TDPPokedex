@@ -1,0 +1,20 @@
+CREATE TABLE Pokedex (
+    name TEXT NOT NULL PRIMARY KEY,
+    url TEXT NOT NULL
+);
+
+insertPokemon:
+INSERT INTO Pokedex(name, url)
+VALUES (?, ?);
+
+deleteAllPokemon:
+DELETE FROM Pokedex;
+
+deletePokemon:
+DELETE FROM Pokedex WHERE name = ?;
+
+getAllPokemon:
+SELECT * FROM Pokedex;
+
+getPokemon:
+SELECT * FROM Pokedex WHERE name = ? LIMIT 1;

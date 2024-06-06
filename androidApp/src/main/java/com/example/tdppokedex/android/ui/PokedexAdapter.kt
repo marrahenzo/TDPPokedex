@@ -7,12 +7,12 @@ import com.example.tdppokedex.android.R
 import com.example.tdppokedex.android.databinding.ItemPokedexBinding
 import com.example.tdppokedex.android.utils.ImageBuilder
 import com.example.tdppokedex.android.utils.StringFormatter
-import com.example.tdppokedex.data.PokedexResults
+import com.example.tdppokedex.data.Pokemon
 import com.squareup.picasso.Picasso
 
 class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() {
 
-    private val pokemonList = mutableListOf<PokedexResults>()
+    private val pokemonList = mutableListOf<Pokemon>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokedexViewHolder {
         val pokedexBinding =
@@ -37,7 +37,7 @@ class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() 
         return pokemonList.size
     }
 
-    fun updatePokedex(results: List<PokedexResults>?) {
+    fun updatePokedex(results: List<Pokemon>?) {
         pokemonList.clear()
         if (results != null) {
             pokemonList.addAll(results)

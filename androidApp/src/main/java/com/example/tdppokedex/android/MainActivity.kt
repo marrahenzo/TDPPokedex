@@ -1,5 +1,6 @@
 package com.example.tdppokedex.android
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -18,8 +19,10 @@ import com.example.tdppokedex.android.ui.PokedexViewModelFactory
 import com.example.tdppokedex.data.Pokedex
 import kotlinx.coroutines.launch
 
+
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var pokedexAdapter: PokedexAdapter
     private lateinit var viewModel: PokedexViewModel
     private lateinit var binding: ActivityMainBinding
@@ -28,11 +31,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        sharedPreferences = getSharedPreferences(getString(R.string.pokedex), MODE_PRIVATE)
 
         setupRecyclerView()
 
-        // Listen to Retrofit response
-        viewModel = ViewModelProvider(this, PokedexViewModelFactory())[PokedexViewModel::class.java]
+        viewModel =
+            ViewModelProvider(
+                this,
+                PokedexViewModelFactory(this)
+            )[PokedexViewModel::class.java]
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.screenState.collect {
